@@ -20,6 +20,13 @@ public class ToDo {
         this.completado = completado;
     }
 
+    public ToDo(String nombre, Date fechaLimite) {
+        this.nombre = nombre;
+        this.fechaLimite = fechaLimite;
+        this.completado=false;
+        this.descripcion="";
+    }
+
     public String getNombre() {
         return nombre;
     }

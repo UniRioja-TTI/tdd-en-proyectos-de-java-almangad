@@ -24,4 +24,15 @@ public class DBStub {
     public void delete(ToDo t){
         throw new UnsupportedOperationException("Clase aún no implementada.");
     }
+
+    public void addCorreo(String correo){
+        emails.add(correo);
+    }
+
+    public List<ToDo> getTareas() {
+        return tareas;
+    }
+    public List<String> getEmails() {
+        return emails;
+    }
 }
