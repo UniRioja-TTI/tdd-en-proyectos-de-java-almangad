@@ -4,9 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Gestor de la lógica de negocio de las tareas
+ */
 public class Servicio {
+    /** Repositorio de persistencia de datos */
     private Repositorio rep;
 
+    /**
+     * Constructor que inicializa el repositorio
+     */
     public Servicio() {
         this.rep = new Repositorio();
     }
@@ -24,18 +31,31 @@ public class Servicio {
         }
     }
 
+    /**Crea una tarea
+     * @param nombre El nombre de la nueva tarea
+     * @param fLim La fecha límite para completar la tarea
+     */
     public ToDo crearToDo(String nombre, Date fLim){
         caducados();
         return new ToDo(nombre, fLim);
     }
+    /**
+     * Anyade un email
+     * @param email La dirección de correo electrónico a añadir
+     */
     public void addEmail(String email){
         caducados();
-        rep.añadirEmail(email);
+        rep.anadirEmail(email);
     }
+    /**
+     * Finaliza una tarea
+     * @param t La tarea que se desea finalizar
+     */
     public void finalizar(ToDo t){
         caducados();
         rep.completar(t);
     }
+    /**Devuelve las tareas pendientes*/
     public List<ToDo> pendientes(){
         caducados();
         List<ToDo> tareas = rep.tareas();
