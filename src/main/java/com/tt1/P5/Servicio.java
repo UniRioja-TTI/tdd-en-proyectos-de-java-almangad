@@ -1,4 +1,4 @@
-package com.tt1.test;
+package com.tt1.P5;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,6 +34,7 @@ public class Servicio {
     /**Crea una tarea
      * @param nombre El nombre de la nueva tarea
      * @param fLim La fecha límite para completar la tarea
+     * @return El objeto ToDo creado
      */
     public ToDo crearToDo(String nombre, Date fLim){
         caducados();
@@ -55,7 +56,10 @@ public class Servicio {
         caducados();
         rep.completar(t);
     }
-    /**Devuelve las tareas pendientes*/
+    /**
+     * Devuelve las tareas pendientes
+     * @return Lista de objetos ToDo
+     */
     public List<ToDo> pendientes(){
         caducados();
         List<ToDo> tareas = rep.tareas();

@@ -1,4 +1,4 @@
-package com.tt1.test;
+package com.tt1.P5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ public class DBStub {
     private List<ToDo> tareas;
     private List<String> emails;
 
+    /** Corea un DBStub */
     public DBStub() {
         this.tareas= new ArrayList<>();
         this.emails= new ArrayList<>();

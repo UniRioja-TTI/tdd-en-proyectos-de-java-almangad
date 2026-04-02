@@ -1,4 +1,4 @@
-package com.tt1.test;
+package com.tt1.P5;
 
 import java.util.List;
 /** Realiza las funciones de una capa de enlace de datos*/

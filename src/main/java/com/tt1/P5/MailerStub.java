@@ -1,4 +1,4 @@
-package com.tt1.test;
+package com.tt1.P5;
 /**Emula el envío de un email*/
 public class MailerStub {
 
