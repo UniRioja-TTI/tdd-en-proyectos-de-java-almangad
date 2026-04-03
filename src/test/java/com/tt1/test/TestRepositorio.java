@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RepositorioTest {
+class TestRepositorio {
 
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
