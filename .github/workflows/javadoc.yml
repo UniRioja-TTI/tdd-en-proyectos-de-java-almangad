@@ -1,0 +1,31 @@
+name: Generate Javadoc
+
+on:
+  push:
+    branches:
+      - stable
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17' # Ajusta a tu versión de Java
+          distribution: 'temurin'
+
+      - name: Generate Javadoc
+        run: mvn javadoc:javadoc # Genera la doc en target/site/apidocs
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: target/site/apidocs # Carpeta donde Maven deja el Javadoc
+          branch: gh-pages # Rama donde se publicará la web
