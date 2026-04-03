@@ -1,0 +1,33 @@
+name: CI and Auto-update Early
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Necesario para poder hacer push a otras ramas
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Run Tests
+        run: mvn test # Si los tests fallan, el workflow se detiene aquí
+
+      - name: Update early branch
+        if: success() # Solo se ejecuta si el paso anterior (tests) fue exitoso
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout early
+          git merge main --ff-only
+          git push origin early
